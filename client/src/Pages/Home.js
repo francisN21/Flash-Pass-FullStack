@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "./FlashPass-gen1.png";
+import logo from "./FlashPass-gen3.png";
 import MainPassGen from "../Components/PassGen/MainPassGen";
 
 import PasswordEngine from "../Components/PassGen/PasswordEngine";

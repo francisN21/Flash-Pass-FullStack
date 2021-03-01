@@ -6,6 +6,7 @@ const PasswordHolder = (props) => {
       type="text"
       className="password-holder"
       value={props.value}
+      onChange={props.handleChange}
     ></textarea>
   );
 };

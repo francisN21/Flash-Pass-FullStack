@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./PasswordEngine.css";
-import API2 from "./API2";
+import API from "./API";
 import PasswordHolder from "./PasswordHolder";
 import PasswordHandler from "./PasswordHandler";
 
@@ -11,10 +11,41 @@ const PasswordEngine = () => {
   let adj = [];
   let verb = [];
   let noun = [];
+  let specialChar = [
+    "$",
+    "@",
+    "#",
+    "&",
+    "?",
+    "~",
+    "!",
+    "_",
+    ".",
+    "*",
+    "+",
+    "-",
+    "=",
+  ];
+  let number = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
+
+  const extraCharacters = (query) => {
+    switch (query) {
+      case "special":
+        console.log(query);
+        possibles.push(specialChar);
+        break;
+      case "num":
+        console.log(query);
+        possibles.push(number);
+        break;
+      default:
+        break;
+    }
+  };
   const randomWord = async (query) => {
     try {
       for (let i = 0; i < 3; i++) {
-        const generatedWord = await API2.extract(query).then(function (
+        const generatedWord = await API.extract(query).then(function (
           response
         ) {
           let randomWord = response;
@@ -71,14 +102,17 @@ const PasswordEngine = () => {
     for (let x = 0; x < ans.length; x++) {
       let rand = Math.floor(Math.random() * ans[x].length);
       pw += possibles[x][rand];
-      console.log(possibles);
     }
     let passwordBank = pw;
-
+    console.log(possibles);
     setpassword(passwordBank);
     console.log(form);
     return passwordBank;
   };
+
+  // form.handleInputChange = (event) => {
+  //   setpassword(event);
+  // };
 
   return (
     <div>
@@ -103,6 +137,18 @@ const PasswordEngine = () => {
           </button>
           <button className="btn btn-danger" onClick={() => randomWord("word")}>
             word
+          </button>
+          <button
+            className="btn btn-danger"
+            onClick={() => extraCharacters("num")}
+          >
+            number
+          </button>
+          <button
+            className="btn btn-danger"
+            onClick={() => extraCharacters("special")}
+          >
+            special
           </button>
         </div>
         <div className="row">
