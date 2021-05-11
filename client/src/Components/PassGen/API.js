@@ -1,3 +1,5 @@
+/* eslint-disable import/no-anonymous-default-export */
+import { API_KEY } from "./../../settings";
 export default {
   extract: async function (query) {
     let x;
@@ -14,7 +16,7 @@ export default {
         redirect: "follow",
         cache: "reload",
         headers: {
-          "x-rapidapi-key": process.env.APIKEY,
+          "x-rapidapi-key": API_KEY,
           "x-rapidapi-host": "wordsapiv1.p.rapidapi.com",
         },
       })

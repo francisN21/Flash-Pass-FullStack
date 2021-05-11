@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import "./App.css";
 import Home from "./Pages/Home";
 import About from "./Pages/About";
@@ -10,6 +9,7 @@ import { useLocalStorage } from "./Components/LocalStorage/useLocalStorage";
 import ThemeContext from "./utils/ThemeContext";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { API_KEY } from "./settings";
 
 function App() {
   // const getData = async () => {
@@ -20,7 +20,8 @@ function App() {
   //   }
   // };
   // useEffect(() => {
-  //   getData();
+  // getData();
+
   // }, []);
   // const [state, setstate] = useState(initialState);
   return (

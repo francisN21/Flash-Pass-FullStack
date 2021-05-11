@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./PasswordEngine.css";
 import API from "./API";
 import PasswordHolder from "./PasswordHolder";
@@ -27,6 +27,10 @@ const PasswordEngine = () => {
     "=",
   ];
   let number = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
+
+  useEffect(() => {
+    console.log(process.env.WORD_APIKEY);
+  }, []);
 
   const extraCharacters = (query) => {
     switch (query) {
