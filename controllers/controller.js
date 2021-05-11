@@ -1,5 +1,5 @@
 module.exports = {
   test: function (req, res) {
-    res.send({ message: "success", status: 200 });
+    res.json({ message: process.env.APIKEY, status: 200 });
   },
 };
